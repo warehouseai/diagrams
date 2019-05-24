@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 
+const argh = require('argh')(process.argv);
 const template = require('./template');
 const canihaz = require('canihaz');
 const path = require('path');
-const fs = require('fs').promises;
-const argh = require('argh')(process.argv);
+const util = require('util');
+const fs = require('fs');
+
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
+const readdir = util.promisify(fs.readdir);
 
 //
 // Keep singleton reference to spawned browser instance.
@@ -19,7 +24,7 @@ const targetDir = path.resolve(process.cwd(), argh.target || 'assets');
 
 async function snapshot(file) {
   try {
-    const chart = await fs.readFile(path.join(sourceDir, file), 'utf-8');
+    const chart = await readFile(path.join(sourceDir, file), 'utf-8');
     const output = {
       png: `${ path.basename(file, '.mmd') }.png`,
       html: `${ path.basename(file, '.mmd') }.html`
@@ -30,7 +35,7 @@ async function snapshot(file) {
 
     if (process.env.DEBUG) {
       console.log(`[${output.html}] Write file`);
-      await fs.writeFile(path.join(targetDir, output.html), rendered, 'utf8');
+      await writeFile(path.join(targetDir, output.html), rendered, 'utf8');
     }
 
     const page = await browser.newPage();
@@ -61,7 +66,7 @@ canihaz({
 
     const diagrams = argh.file && argh.file.length
       ? argh.file.map(file => path.extname(file) === '.mmd' ? file : `${ file }.mmd`)
-      : await fs.readdir(sourceDir);
+      : await readdir(sourceDir);
 
     for (const file of diagrams) {
       if (path.extname(file) === '.mmd') await snapshot(file);

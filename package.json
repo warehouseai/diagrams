@@ -1,0 +1,43 @@
+{
+  "name": "@wrhs/diagrams",
+  "version": "1.0.0",
+  "description": "Utility tool to generate mermaid diagrams for Warehouse.ai",
+  "main": "index.js",
+  "bin": {
+    "wrhs-diagrams": "./index.js"
+  },
+  "scripts": {
+    "test": "mocha test/**/*.js",
+    "posttest": "npm run lint",
+    "lint": "eslint-godaddy *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warehouseai/diagrams.git"
+  },
+  "author": "GoDaddy Operating Company, LLC",
+  "contributors": [
+    "Martijn Swaagman <mswaagman@godaddy.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/warehouseai/diagrams/issues"
+  },
+  "homepage": "https://github.com/warehouseai/diagrams#readme",
+  "dependencies": {
+    "argh": "^1.0.0",
+    "canihaz": "^1.1.0"
+  },
+  "cliDependencies": {
+    "puppeteer": "^1.14.0"
+  },
+  "devDependencies": {
+    "assume": "^2.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-godaddy": "^3.0.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-mocha": "^5.3.0",
+    "mocha": "^6.1.4",
+    "puppeteer": "^1.17.0"
+  }
+}

@@ -1,8 +1,8 @@
 # `@wrhs/diagrams`
 
-[![Version npm](https://img.shields.io/npm/v/@wrhs/diagrams.svg?style=flat-square)](https://www.npmjs.com/package/diagrams)
+[![Version npm](https://img.shields.io/npm/v/@wrhs/diagrams.svg?style=flat-square)](https://www.npmjs.com/package/@wrhs/diagrams)
 [![License](https://img.shields.io/npm/l/@wrhs/diagrams.svg?style=flat-square)](https://github.com/warehouseai/diagrams/blob/master/LICENSE)
-[![npm Downloads](https://img.shields.io/npm/dm/@wrhs/diagrams.svg?style=flat-square)](https://npmcharts.com/compare/diagrams?minimal=true)
+[![npm Downloads](https://img.shields.io/npm/dm/@wrhs/diagrams.svg?style=flat-square)](https://npmcharts.com/compare/@wrhs/diagrams?minimal=true)
 [![Dependencies](https://img.shields.io/david/warehouseai/diagrams.svg?style=flat-square)](https://github.com/warehouseai/diagrams/blob/master/package.json)
 [![CircleCI](https://circleci.com/gh/warehouseai/diagrams.svg?style=svg)](https://circleci.com/gh/warehouseai/diagrams)
 

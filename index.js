@@ -65,7 +65,10 @@ canihaz({
   if (files && !Array.isArray(files)) files = [argh.file];
 
   try {
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
 
     const diagrams = files
       ? files.map(file => path.extname(file) === '.mmd' ? file : `${ file }.mmd`)

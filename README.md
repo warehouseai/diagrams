@@ -21,7 +21,7 @@ consuming module's `package.json`
 
 ```json
 "scripts": {
-  "diagrams": "wrhs-diagrams --target=./docs --theme=forest"
+  "diagrams": "wrhs-diagrams --source=./docs/diagrams --target=./docs --theme=forest"
   ...
 },
 ```
@@ -39,8 +39,10 @@ the `.mmd` diagram definitions. [`canihaz`][canihaz] will install [Puppeteer]
 the first time this tool is used. It only has a single command,
 but it supports the following flags.
 
-- **--source**: Relative path to directory with `.mmd` source files.
-- **--target**: Relative path to directory to store `.png` output files.
+- **--source**: Relative path to directory with `.mmd` source files,
+  defaults to `./diagrams`.
+- **--target**: Relative path to directory to store `.png` output files,
+  defaults to `./assets`.
 - **--file**: Relative path to source files `--file one.mmd --file two.mmd`.
 - **--theme**: Theme to be used for diagram styling, defaults to `forest`.
 

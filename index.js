@@ -61,11 +61,14 @@ canihaz({
 }).puppeteer(async function puppetmaster(error, puppeteer) {
   if (error) throw error;
 
+  let files = argh.file;
+  if (files && !Array.isArray(files)) files = [argh.file];
+
   try {
     browser = await puppeteer.launch();
 
-    const diagrams = argh.file && argh.file.length
-      ? argh.file.map(file => path.extname(file) === '.mmd' ? file : `${ file }.mmd`)
+    const diagrams = files
+      ? files.map(file => path.extname(file) === '.mmd' ? file : `${ file }.mmd`)
       : await readdir(sourceDir);
 
     for (const file of diagrams) {

@@ -17,7 +17,8 @@
   },
   "author": "GoDaddy Operating Company, LLC",
   "contributors": [
-    "Martijn Swaagman <mswaagman@godaddy.com>"
+    "Martijn Swaagman <mswaagman@godaddy.com>",
+    "Charlie Robbins <crobbins@godaddy.com>"
   ],
   "license": "MIT",
   "bugs": {

@@ -44,6 +44,10 @@ but it supports the following flags.
 - **--file**: Relative path to source files `--file one.mmd --file two.mmd`.
 - **--theme**: Theme to be used for diagram styling, defaults to `forest`.
 
+_Note: If you need to assert the HTML used in [Puppeteer] to generate the
+chart set `DEBUG=true` to have the script output both an `.png` and `.html`
+file._
+
 ## Test
 
 ```sh

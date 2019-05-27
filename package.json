@@ -7,7 +7,7 @@
     "wrhs-diagrams": "./index.js"
   },
   "scripts": {
-    "test": "mocha test/**/*.js",
+    "test": "mocha \"test/**/*.js\"",
     "posttest": "npm run lint",
     "lint": "eslint-godaddy *.js"
   },

@@ -25,7 +25,7 @@ describe('Warehouse diagrams', function () {
     const stats = await stat(path.join(__dirname, 'fixtures', 'build.png'));
 
     assume(stats).to.be.an('object');
-    assume(stats.size).to.be.gt(5E4);
+    assume(stats.size).to.be.gt(4E4);
     assume(stats.mtimeMs).to.be.gt(Date.now() - timeout);
   });
 

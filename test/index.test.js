@@ -15,16 +15,18 @@ describe('Warehouse diagrams', function () {
 
   this.timeout(timeout);
 
-  it('generates images from mermaid diagram definitions', async function () {
-    await exec(`node ${ bin } --target=./fixtures --source=./fixtures`, {
+  it('generates images from mermaid diagram definitions', function (done) {
+    childProcess.exec(`node ${ bin } --target=./fixtures --source=./fixtures`, {
       cwd: __dirname
+    }, async function () {
+      console.log('CIRCLE.CI', arguments);
+      const stats = await stat(path.join(__dirname, 'fixtures', 'build.png'));
+
+      assume(stats).to.be.an('object');
+      assume(stats.size).to.be.gt(5E4);
+      assume(stats.mtimeMs).to.be.gt(Date.now() - timeout);
+      done();
     });
-
-    const stats = await stat(path.join(__dirname, 'fixtures', 'build.png'));
-
-    assume(stats).to.be.an('object');
-    assume(stats.size).to.be.gt(5E4);
-    assume(stats.mtimeMs).to.be.gt(Date.now() - timeout);
   });
 
   it('can output static html for debugging', async function () {
